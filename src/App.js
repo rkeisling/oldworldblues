@@ -6,13 +6,22 @@ function App() {
   var last = "Dee";
   var greet = "Morning";
   var mood = "confused";
+  var isAdmin = true
 
   return (
     <div className="App">
-      <h1>{GetEnterMessage(GetGreeting(greet),
+      <h1>
+          {GetEnterMessage(GetGreeting(greet),
            GetNameTogether(first, last),
-           GetMoodIndicator(mood))}</h1>
+           GetMoodIndicator(mood))}
+      </h1>
+      <div id="junk">
+        <h4>
+          {GetIntroMessage(isAdmin)}
+        </h4>
+      </div>
     </div>
+
   );
 }
 
@@ -50,6 +59,37 @@ function GetMoodIndicator(mood){
     indicator = "...";
   }
   return indicator;
+}
+
+function GetIntroMessage(isAdmin){
+  var message = "";
+  if (isAdmin){
+    message += "***ADMIN USER*** ";
+  }
+  message += "This is the landing page for any user, admin or not."
+  return message;
+}
+
+function Post(props) {
+  return (
+    <div className="Post">
+      <div className="UserInfo">
+        <img className="Avatar">
+          src={props.author.avatarUrl}
+          alt={props.auther.name}
+        </img>
+        <div className='UserInfo-name'>
+          {props.author.name}
+        </div>
+      </div>
+      <div className="Post-text">
+        {props.text}
+      </div>
+      <div className="Post-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  );
 }
 
 export default App;
