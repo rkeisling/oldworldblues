@@ -2,72 +2,19 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  var first = "Rick";
-  var last = "Dee";
-  var greet = "Morning";
-  var mood = "confused";
-  var isAdmin = true
-
   return (
     <div className="App">
       <h1>
-          {GetEnterMessage(GetGreeting(greet),
-           GetNameTogether(first, last),
-           GetMoodIndicator(mood))}
+          This is a placeholder
       </h1>
       <div id="junk">
         <h4>
-          {GetIntroMessage(isAdmin)}
+          Placeholder part 2
         </h4>
       </div>
     </div>
 
   );
-}
-
-function GetEnterMessage(funcA, funcB, funcC){
-  return funcA + ' ' + funcB + funcC;
-}
-
-function GetNameTogether(firstName, lastName) {
-  return firstName + ' ' + lastName;
-}
-
-function GetGreeting(greeting) {
-  switch (greeting) {
-    case "Hello":
-      return "Hello, ";
-    case "Morning":
-      return "Good morning, ";
-    default:
-      return "Hiya, ";
-  }
-}
-
-function GetMoodIndicator(mood){
-  var indicator = "";
-  if (mood === "excited") {
-    indicator = "!";
-  }
-  else if (mood === "normal") {
-    indicator = ".";
-  }
-  else if (mood === "confused") {
-    indicator = "?";
-  }
-  else {
-    indicator = "...";
-  }
-  return indicator;
-}
-
-function GetIntroMessage(isAdmin){
-  var message = "";
-  if (isAdmin){
-    message += "***ADMIN USER*** ";
-  }
-  message += "This is the landing page for any user, admin or not."
-  return message;
 }
 
 function Post(props) {
